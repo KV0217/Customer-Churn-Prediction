@@ -47,6 +47,20 @@ XGBoost (tuned)           -      0.8243
 - No Online Security or Tech Support
 - DSL Internet
 
+#📊 Power BI Dashboard
+Built an interactive dashboard using `churn_final_dataset.csv`
+
+Visuals included:
+- KPI Cards — Total Customers, Churned, Churn Rate %, Avg Monthly Charges
+- Donut Chart — Churn Distribution (Yes/No)
+- Bar Chart — Churn Rate by Contract Type
+- Bar Chart — Churn Rate by Payment Method
+- Line Chart — Churn Rate by Tenure Band
+- Bar Chart — Support Calls vs Churn Rate
+- Slicers — Contract, Internet Service, Senior Citizen
+
+Dataset columns :  26 columns including engineered features
+(TenureBand, ChurnRisk, AvgMonthlySpend, RiskScore, IsNewCustomer etc.)
 
 KAVIN VENKAT V R
 [LinkedIn](www.linkedin.com/in/kavin-venkat-1710s0202) ·
