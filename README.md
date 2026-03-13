@@ -66,5 +66,5 @@ streamlit run churn_app.py
 ```
 
 ## 👤 Author
-**YOUR NAME**
+**KAVIN VENKAT**
 [LinkedIn](www.linkedin.com/in/kavin-venkat-1710s0202)
