@@ -1,4 +1,4 @@
-# 📉 Customer Churn Prediction - Streamlit(https://churn-prediction-api-cbqf.onrender.com)
+# 📉 Customer Churn Prediction - Streamlit(https://husbandless-marvin-roughish.ngrok-free.dev)
 
 Predicts which telecom customers are likely to leave using Random Forest (AUC: 0.84) on real IBM Telco data. Features SQL EDA, SMOTE class balancing, SHAP explainability, KMeans segmentation, and a live interactive Streamlit web app deployed via ngrok.
 
@@ -85,4 +85,4 @@ FROM risk_scored GROUP BY risk_tier
 ## 👤 Author
 **KAVIN VENKAT**
 [LinkedIn](www.linkedin.com/in/kavin-venkat-1710s0202) 
-[Streamlit](https://churn-prediction-api-cbqf.onrender.com)
+[Streamlit](https://husbandless-marvin-roughish.ngrok-free.dev)
