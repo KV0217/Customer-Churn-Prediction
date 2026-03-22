@@ -1,10 +1,15 @@
-pandas
-numpy
-scikit-learn
-imbalanced-learn
-xgboost
-shap
-matplotlib
-seaborn
-streamlit
-joblib
+# Streamlit app dependencies
+streamlit==1.32.0
+requests==2.31.0
+altair==5.2.0
+
+# ML / Data Science dependencies
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+xgboost==2.0.3
+imbalanced-learn==0.12.2
+joblib==1.4.0
+shap==0.44.0
+matplotlib==3.8.4
+seaborn==0.13.2
