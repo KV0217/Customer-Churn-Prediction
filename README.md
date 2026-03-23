@@ -12,12 +12,7 @@
 
 ## Screenshots
 ### Streamlit Dashboard
-![Prediction Results](screenshots/streamlit_prediction.png)
-![Improvement Suggestions](screenshots/streamlit_suggestions.png)
-
-### API
-![API Docs](screenshots/api_docs.png)
-![API Response](screenshots/api_response.png)
+![App Demo](screenshots/streamlit_churn_demo.png)
 
 ## What's Inside
 - EDA with visualisations
