@@ -10,6 +10,55 @@
 
 > Note: API is on free tier — first request may take 30 seconds to wake up.
 
+## Screenshots
+### Streamlit Dashboard
+![Prediction Results](screenshots/streamlit_prediction.png)
+![Improvement Suggestions](screenshots/streamlit_suggestions.png)
+
+### API
+![API Docs](screenshots/api_docs.png)
+![API Response](screenshots/api_response.png)
+
+## What's Inside
+- EDA with visualisations
+- Feature engineering (RiskScore, AvgMonthlySpend, IsNewCustomer)
+- SMOTE for class imbalance · 4-model comparison
+- Hyperparameter tuning with RandomizedSearchCV
+- SHAP explainability — per-customer force plots
+- KMeans segmentation — 15x churn-rate gap between clusters (3.5%→54.7%)
+- SQL EDA: CTEs, window functions, cohort analysis
+
+## API Usage
+```python
+import requests
+response = requests.post(
+    "https://churn-prediction-api-cbqf.onrender.com/predict",
+    json={
+        "gender": "Male", "SeniorCitizen": "No", "Partner": "No",
+        "Dependents": "No", "tenure": 2, "PhoneService": "Yes",
+        "MultipleLines": "No", "InternetService": "Fiber optic",
+        "OnlineSecurity": "No", "OnlineBackup": "No",
+        "DeviceProtection": "No", "TechSupport": "No",
+        "StreamingTV": "Yes", "StreamingMovies": "Yes",
+        "Contract": "Month-to-month", "PaperlessBilling": "Yes",
+        "PaymentMethod": "Electronic check",
+        "MonthlyCharges": 85.0, "TotalCharges": 170.0
+    }
+)
+print(response.json())
+```
+
+## Sample Response
+```json
+{
+  "churn_probability": 0.823,
+  "risk_level": "high",
+  "recommendation": "Immediate outreach — offer contract upgrade or discount",
+  "risk_score": 5,
+  "improvement_suggestions": [...],
+  "summary": "3 area(s) identified for retention improvement"
+}
+```
 
 
 ## 🔍 What Makes This Unique
@@ -24,30 +73,9 @@
 ## 📊 Dataset
 IBM Telco Customer Churn — 7,043 customers × 20 features | Churn rate: 26.5%
 
-## 🛠️ Tech Stack
-Python · Random Forest · XGBoost · Scikit-learn · SHAP · SMOTE · SQLite · Streamlit · ngrok
+## Tech Stack
+Python · Pandas · Scikit-learn · XGBoost · SHAP · SMOTE · FastAPI · Docker · Streamlit · Power BI · SQLite · Render
 
-## 📁 Project Structure
-| File | Description |
-|------|-------------|
-| `churn-prediction.ipynb` | Full notebook — EDA, ML, SQL, SHAP, KMeans |
-| `churn_app.py` | Streamlit web application |
-| `requirements.txt` | Dependencies |
-
-## 🔍 Key Sections
-| # | Section | What it does |
-|---|---------|-------------|
-| 1 | Libraries + Load Data | IBM Telco CSV, data cleaning |
-| 2 | EDA | 6 charts — churn by contract, charges, tenure, internet |
-| 2b | SQL EDA | Same insights via SQL — CTEs, Window Functions, CASE WHEN |
-| 3 | Feature Engineering | AvgMonthlySpend · IsNewCustomer · RiskScore · HasSupport |
-| 4 | SMOTE | Class balancing — 1,495 → 4,139 churn samples |
-| 5 | Model Comparison | LR · RF · Gradient Boosting · XGBoost pipeline |
-| 6 | ROC Curve | All 4 models compared |
-| 7 | Hyperparameter Tuning | RandomizedSearchCV on Random Forest |
-| 8 | SHAP | Feature importance + beeswarm + force plot |
-| 9 | KMeans | 4 customer segments via PCA |
-| 10 | Streamlit App | Live deployment with ngrok |
 
 ## 📈 Model Results
 | Model | AUC |
@@ -58,22 +86,6 @@ Python · Random Forest · XGBoost · Scikit-learn · SHAP · SMOTE · SQLite ·
 | XGBoost | 0.8315 |
 | **Random Forest (Tuned)** | **0.8387** |
 
-## 🗄️ SQL Highlights
-```sql
--- High Risk Customer Tiers (CTE + CASE WHEN)
-WITH risk_scored AS (
-    SELECT *,
-        CASE
-            WHEN Contract='Month-to-month' AND tenure<=12
-             AND MonthlyCharges>65 THEN '🔴 Very High Risk'
-            WHEN Contract='Month-to-month' THEN '🟡 High Risk'
-            ELSE '✅ Low Risk'
-        END AS risk_tier
-    FROM telco
-)
-SELECT risk_tier, COUNT(*), ROUND(AVG(Churn)*100,2) AS churn_pct
-FROM risk_scored GROUP BY risk_tier
-```
 
 ## 🔑 Key Insights
 - Month-to-month contracts churn 3x more than 2-year contracts
