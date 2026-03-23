@@ -95,4 +95,4 @@ FROM risk_scored GROUP BY risk_tier
 ## 👤 Author
 **KAVIN VENKAT**
 [LinkedIn](www.linkedin.com/in/kavin-venkat-1710s0202) 
-[Streamlit](https://husbandless-marvin-roughish.ngrok-free.dev)
+[Github](www.github.com/KV0217)
