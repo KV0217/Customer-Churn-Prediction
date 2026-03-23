@@ -1,5 +1,5 @@
 # 📉 Customer Churn Prediction
-               Predicts which telecom customers are likely to leave using Random Forest (AUC: 0.84) on real IBM Telco data. Features SQL EDA, SMOTE class balancing, SHAP explainability, KMeans segmentation, and a                live interactive Streamlit web app deployed .
+  Predicts which telecom customers are likely to leave using Random Forest (AUC: 0.84) on real IBM Telco data. Features SQL EDA, SMOTE class balancing, SHAP explainability, KMeans segmentation, and a               live interactive Streamlit web app deployed .
 
 ## Live Deployments
 | App | URL |
