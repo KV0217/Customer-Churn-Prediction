@@ -101,5 +101,5 @@ Python · Pandas · Scikit-learn · XGBoost · SHAP · SMOTE · FastAPI · Docke
 
 ## 👤 Author
 **KAVIN VENKAT**
-[LinkedIn](www.linkedin.com/in/kavin-venkat-1710s0202) 
+[LinkedIn](https://www.linkedin.com/in/kvsherly17100210) 
 [Github](www.github.com/KV0217)
