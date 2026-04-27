@@ -30,7 +30,8 @@ jobs:
               'https://customer-churn-prediction-kv.streamlit.app',
               'https://hr-attrition-api-kv.streamlit.app',
               'https://sentiment-analysis-api-kv.streamlit.app',
-              'https://supplier-risk-intelligence-kv.streamlit.app'
+              'https://supplier-risk-intelligence-kv.streamlit.app',
+              'https://kv-job-tracker-app.streamlit.app'
             ];
             for (const url of urls) {
               const page = await browser.newPage();
