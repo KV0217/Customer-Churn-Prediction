@@ -1,0 +1,50 @@
+name: Keep Streamlit Apps Awake
+
+on:
+  schedule:
+    - cron: '0 8 */5 * *'
+  workflow_dispatch:
+
+jobs:
+  wake-apps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Playwright
+        run: |
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Wake all Streamlit apps
+        run: |
+          node -e "
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            const urls = [
+              'https://customer-churn-prediction-kv.streamlit.app',
+              'https://hr-attrition-api-kv.streamlit.app',
+              'https://sentiment-analysis-api-kv.streamlit.app',
+              'https://supplier-risk-intelligence-kv.streamlit.app'
+            ];
+            for (const url of urls) {
+              const page = await browser.newPage();
+              console.log('Visiting: ' + url);
+              await page.goto(url, { timeout: 120000 });
+              try {
+                await page.click('button:has-text(\"Yes, get this app back up!\")', { timeout: 10000 });
+                console.log('Clicked wake button for: ' + url);
+                await page.waitForTimeout(30000);
+              } catch {
+                console.log('App already awake: ' + url);
+              }
+              await page.close();
+            }
+            await browser.close();
+          })();
+          "
