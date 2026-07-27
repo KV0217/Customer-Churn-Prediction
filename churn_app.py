@@ -21,7 +21,7 @@ tab1, tab2, tab3 = st.tabs(["👤 Single Customer", "📁 Batch Prediction", "�
 # ── TAB 1: Single Customer ─────────────────────────────────────────────────
 with tab1:
     st.markdown("### Enter Customer Details")
-    _, col1, col2, col3, _ = st.columns([1, 3, 3, 3, 1])
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.markdown("**Personal Details**")
@@ -30,22 +30,25 @@ with tab1:
         partner         = st.radio("Partner", ["Yes", "No"], horizontal=True)
         dependents      = st.radio("Dependents", ["Yes", "No"], horizontal=True)
         tenure          = st.slider("Tenure (months)", 1, 72, 12)
-        monthly_charges = st.slider("Monthly Charges ($)", 18, 120, 65)
 
     with col2:
-        st.markdown("**Services Part 1**")
+        st.markdown("**Billing & Basic**")
+        monthly_charges = st.slider("Monthly Charges ($)", 18, 120, 65)
         total_charges   = st.number_input("Total Charges ($)", min_value=0.0, value=float(monthly_charges * tenure))
         phone           = st.radio("Phone Service", ["Yes", "No"], horizontal=True)
         multi_lines     = st.radio("Multiple Lines", ["Yes", "No"], horizontal=True)
         internet        = st.radio("Internet Service", ["Fiber optic", "DSL", "No"])
-        security        = st.radio("Online Security", ["Yes", "No"], horizontal=True)
-        backup          = st.radio("Online Backup", ["Yes", "No"], horizontal=True)
 
     with col3:
-        st.markdown("**Services Part 2**")
+        st.markdown("**Add-on Services**")
+        security        = st.radio("Online Security", ["Yes", "No"], horizontal=True)
+        backup          = st.radio("Online Backup", ["Yes", "No"], horizontal=True)
         device          = st.radio("Device Protection", ["Yes", "No"], horizontal=True)
         tech            = st.radio("Tech Support", ["Yes", "No"], horizontal=True)
         tv              = st.radio("Streaming TV", ["Yes", "No"], horizontal=True)
+
+    with col4:
+        st.markdown("**Account Status**")
         movies          = st.radio("Streaming Movies", ["Yes", "No"], horizontal=True)
         contract        = st.radio("Contract", ["Month-to-month", "One year", "Two year"])
         paperless       = st.radio("Paperless Billing", ["Yes", "No"], horizontal=True)
