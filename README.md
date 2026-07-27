@@ -13,8 +13,7 @@
 ## Screenshots
 ### Streamlit Dashboard
 <p align="center">
-  <img src="screenshots/Customer%201.jpg" width="48%" />
-  <img src="screenshots/Customer%202.jpg" width="48%" />
+  <img src="screenshots/slider.gif" width="100%" />
 </p>
 
 ## What's Inside
