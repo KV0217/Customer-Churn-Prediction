@@ -12,7 +12,10 @@
 
 ## Screenshots
 ### Streamlit Dashboard
-![App Demo](https://raw.githubusercontent.com/KV0217/Customer-Churn-Prediction/main/screenshots/streamlit_churn_demo.png)
+<p align="center">
+  <img src="screenshots/Customer%201.jpg" width="48%" />
+  <img src="screenshots/Customer%202.jpg" width="48%" />
+</p>
 
 ## What's Inside
 - EDA with visualisations
